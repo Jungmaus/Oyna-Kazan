@@ -1,0 +1,41 @@
+﻿@model IEnumerable<OynaKazan.UIMvc.Models.UserPanelModels.PuanBakiyeTabloModel>
+
+<div class="card mb-3">
+    <div class="card-header">
+        <i class="fa fa-table"></i> Puan - Bakiye Geçmişiniz
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" style="width:100%;" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Puan Takas Paketi</th>
+                        <th>Harcanan Puan Adeti</th>
+                        <th>Kazanılan Bakiye</th>
+                        <th>Işlem Tarihi</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>Puan Takas Paketi</th>
+                        <th>Harcanan Puan Adeti</th>
+                        <th>Kazanılan Bakiye</th>
+                        <th>Işlem Tarihi</th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.PuanPaketID Numaralı Paket</td>
+                            <td>@item.HarcananPuanAdeti Adet</td>
+                            <td>@item.KazanilanBakiye TL</td>
+                            <td>@item.IslemTarihi</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="card-footer small text-muted">@DateTime.Now tarihinde güncellendi.</div>
+</div>

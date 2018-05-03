@@ -1,0 +1,53 @@
+body {
+    background-image: url("../Images/back.jpg");
+    background-repeat: no-repeat;
+}
+
+#divMenu {
+    width: 75%;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px auto;
+}
+
+.menuButton {
+    height: 50px;
+    width: 16%;
+    position: relative;
+    margin: 0px auto;
+}
+
+    .menuButton:hover {
+        background-color: #C00E1A;
+        color: #3A0BBC;
+    }
+
+#divIletisim {
+    margin-top: 5%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+/*#divIletisim img {
+        position: relative;
+        margin: 0 auto;
+    }*/
+
+#divSozlesme {
+    background-color: white;
+}
+
+#divKayit {
+    margin-left: 30%;
+    width: 100%;
+    height: auto;
+}
+
+#divGiris {
+    margin-left: 30%;
+    width: 100%;
+    height: auto;
+}

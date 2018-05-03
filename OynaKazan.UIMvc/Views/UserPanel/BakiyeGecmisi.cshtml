@@ -1,0 +1,11 @@
+﻿
+@{
+    ViewBag.Title = "Bakiye Geçmişi | OynaKazan";
+    Layout = "~/Views/Shared/_UserPanelLayout.cshtml";
+}
+
+@{ Html.RenderAction("PuanBakiyeJumbotron", "Part");}
+
+@{ Html.RenderAction("PuanBakiyeTablosu", "Part"); }
+
+@{ Html.RenderAction("PayRequests", "Part"); }

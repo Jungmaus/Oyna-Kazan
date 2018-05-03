@@ -1,0 +1,15 @@
+﻿@model IEnumerable<OynaKazan.UIMvc.Models.UserPanelModels.PuanBakiyeTabloModel>
+
+@{
+    ViewBag.Title = "Gösterge Paneli | OynaKazan";
+    Layout = "~/Views/Shared/_UserPanelLayout.cshtml";
+}
+
+@{ Html.RenderAction("PuanBakiyeJumbotron", "Part"); }
+
+@{Html.RenderAction("PuanBakiyeTablosu", "Part");}
+<br />
+@{ Html.RenderAction("PayRequests", "Part");}
+<br />
+@{ Html.RenderAction("EarnPointTable", "Part");}
+

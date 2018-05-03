@@ -1,0 +1,80 @@
+﻿@model OynaKazan.UIMvc.Models.UserPanelModels.OdemeTalebiOlusturModel
+
+@{
+    ViewBag.Title = "Ödeme Talebi Oluştur | OynaKazan";
+    Layout = "~/Views/Shared/_UserPanelLayout.cshtml";
+}
+
+@{ Html.RenderAction("PuanBakiyeJumbotron", "Part"); }
+
+@using (Ajax.BeginForm("OdemeTalebiOlustur", "UserPanel", new AjaxOptions { HttpMethod = "POST", OnFailure = "OdemeTalebiFail",OnSuccess="OdemeTalebiSuccess" }))
+{
+    @Html.AntiForgeryToken()
+    <label>Çekilecek Tutar (TL): </label> @Html.TextBoxFor(x => x.CekilecekTutar, new { @class = "form-control" })
+    if (Html.ValidationMessageFor(x => x.CekilecekTutar) != null)
+    {
+        <br /> @Html.ValidationMessageFor(x => x.CekilecekTutar)
+    }
+
+    <br />
+
+    <label>Ödemenin Yapılacağı Banka Hesabı : </label>
+    <select name="BankAccountID">
+        @foreach (var item in Model.BankAccountList)
+        {
+            <option value="@item.Id">@item.BankaAdi</option>
+        }
+    </select>
+    if (Html.ValidationMessageFor(x => x.BankAccountID) != null)
+    {
+        <br /> @Html.ValidationMessageFor(x => x.BankAccountID)
+    }
+
+    <br />
+
+    <button class="btn btn-success">Ödeme Talebi Oluştur</button>
+}
+    <div id="divErrormsg">
+        @{
+        if (ViewBag.msg != null)
+        {
+        if (ViewBag.msg == "0")
+        {
+        <br /><br />
+        <label class="validationLabel">İşleminiz gerçekleştirilemedi. Şu nedenlerden dolayı olabilir;</label>
+        <ul>
+            <li>
+                20TL'nin üzerinde bir tutar girmediniz.
+            </li>
+            <li>
+                Bakiyeniz yetersiz.
+            </li>
+            <li>
+                Sistemimizden kaynaklanan bir sıkıntı.
+            </li>
+        </ul>
+        }else if(ViewBag.msg == "1")
+        {
+        <br /><br />
+        <label style="color:green;">İşleminiz başarıyla gerçekleştirildi.</label>
+        }
+        }
+
+        }
+    </div>
+
+<script type="text/javascript">
+    function OdemeTalebiFail() {
+        $("div#divErrormsg").html("");
+        var v = " <br /><br /><label class='validationLabel'> İşleminiz gerçekleştirilemedi.Şu nedenlerden dolayı olabilir;</label><ul><li>20TL'nin üzerinde bir tutar girmediniz.</li><li>Bakiyeniz yetersiz.</li><li>Sistemimizden kaynaklanan bir sıkıntı.</li></ul>"
+        $("div#divErrormsg").append(v);
+    }
+
+    function OdemeTalebiSuccess() {
+        $("div#divErrormsg").html("");
+        var v = "<br /><br /><label style='color:green;'> İşleminiz başarıyla gerçekleştirildi.</label>";
+        $("div#divErrormsg").append(v);
+        location.reload();
+    }
+
+</script>

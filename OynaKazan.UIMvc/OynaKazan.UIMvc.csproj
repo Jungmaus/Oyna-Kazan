@@ -1,0 +1,389 @@
+﻿<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{13731164-86E8-41B7-B51B-7B3F73B0C8D2}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>OynaKazan.UIMvc</RootNamespace>
+    <AssemblyName>OynaKazan.UIMvc</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TypeScriptToolsVersion>2.5</TypeScriptToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Web.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Deployment">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-grid.css" />
+    <Content Include="Content\bootstrap-grid.min.css" />
+    <Content Include="Content\bootstrap-reboot.css" />
+    <Content Include="Content\bootstrap-reboot.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Files\Css\anasayfa.css" />
+    <Content Include="Files\Images\back.jpg" />
+    <Content Include="Files\Images\iletisim.png" />
+    <Content Include="Files\Images\logo.png" />
+    <Content Include="Files\UserPanel\css\sb-admin.css" />
+    <Content Include="Files\UserPanel\css\sb-admin.min.css" />
+    <Content Include="Files\UserPanel\gulpfile.js" />
+    <Content Include="Files\UserPanel\js\sb-admin-charts.js" />
+    <Content Include="Files\UserPanel\js\sb-admin-charts.min.js" />
+    <Content Include="Files\UserPanel\js\sb-admin-datatables.js" />
+    <Content Include="Files\UserPanel\js\sb-admin-datatables.min.js" />
+    <Content Include="Files\UserPanel\js\sb-admin.js" />
+    <Content Include="Files\UserPanel\js\sb-admin.min.js" />
+    <Content Include="Files\UserPanel\vendor\bootstrap\css\bootstrap-grid.css" />
+    <Content Include="Files\UserPanel\vendor\bootstrap\css\bootstrap-grid.min.css" />
+    <Content Include="Files\UserPanel\vendor\bootstrap\css\bootstrap-reboot.css" />
+    <Content Include="Files\UserPanel\vendor\bootstrap\css\bootstrap-reboot.min.css" />
+    <Content Include="Files\UserPanel\vendor\bootstrap\css\bootstrap.css" />
+    <Content Include="Files\UserPanel\vendor\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Files\UserPanel\vendor\bootstrap\js\bootstrap.bundle.js" />
+    <Content Include="Files\UserPanel\vendor\bootstrap\js\bootstrap.bundle.min.js" />
+    <Content Include="Files\UserPanel\vendor\bootstrap\js\bootstrap.js" />
+    <Content Include="Files\UserPanel\vendor\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Files\UserPanel\vendor\chart.js\Chart.bundle.js" />
+    <Content Include="Files\UserPanel\vendor\chart.js\Chart.bundle.min.js" />
+    <Content Include="Files\UserPanel\vendor\chart.js\Chart.js" />
+    <Content Include="Files\UserPanel\vendor\chart.js\Chart.min.js" />
+    <Content Include="Files\UserPanel\vendor\datatables\dataTables.bootstrap4.css" />
+    <Content Include="Files\UserPanel\vendor\datatables\dataTables.bootstrap4.js" />
+    <Content Include="Files\UserPanel\vendor\datatables\jquery.dataTables.js" />
+    <Content Include="Files\UserPanel\vendor\font-awesome\css\font-awesome.css" />
+    <Content Include="Files\UserPanel\vendor\font-awesome\css\font-awesome.min.css" />
+    <Content Include="Files\UserPanel\vendor\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="Files\UserPanel\vendor\jquery-easing\jquery.easing.compatibility.js" />
+    <Content Include="Files\UserPanel\vendor\jquery-easing\jquery.easing.js" />
+    <Content Include="Files\UserPanel\vendor\jquery-easing\jquery.easing.min.js" />
+    <Content Include="Files\UserPanel\vendor\jquery\jquery.js" />
+    <Content Include="Files\UserPanel\vendor\jquery\jquery.min.js" />
+    <Content Include="Files\UserPanel\vendor\jquery\jquery.slim.js" />
+    <Content Include="Files\UserPanel\vendor\jquery\jquery.slim.min.js" />
+    <Content Include="Global.asax" />
+    <Content Include="Scripts\bootstrap.bundle.js" />
+    <Content Include="Scripts\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\esm\popper-utils.js" />
+    <Content Include="Scripts\esm\popper-utils.min.js" />
+    <Content Include="Scripts\esm\popper.js" />
+    <Content Include="Scripts\esm\popper.min.js" />
+    <Content Include="Scripts\esm\popper.min.js.map" />
+    <Content Include="Scripts\esm\popper.js.map" />
+    <Content Include="Scripts\esm\popper-utils.min.js.map" />
+    <Content Include="Scripts\esm\popper-utils.js.map" />
+    <Content Include="Scripts\bootstrap.min.js.map" />
+    <Content Include="Scripts\bootstrap.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.min.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.js.map" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.css.map" />
+    <Content Include="Content\bootstrap-grid.min.css.map" />
+    <Content Include="Content\bootstrap-grid.css.map" />
+    <Content Include="Files\UserPanel\.gitignore" />
+    <Content Include="Files\UserPanel\.jsbeautifyrc" />
+    <Content Include="Files\UserPanel\.travis.yml" />
+    <Content Include="Files\UserPanel\LICENSE" />
+    <Content Include="Files\UserPanel\package-lock.json" />
+    <Content Include="Files\UserPanel\package.json" />
+    <Content Include="Files\UserPanel\pug\blank.pug" />
+    <Content Include="Files\UserPanel\pug\cards.pug" />
+    <Content Include="Files\UserPanel\pug\charts.pug" />
+    <Content Include="Files\UserPanel\pug\forgot-password.pug" />
+    <Content Include="Files\UserPanel\pug\includes\css\core.pug" />
+    <Content Include="Files\UserPanel\pug\includes\css\custom.pug" />
+    <Content Include="Files\UserPanel\pug\includes\footer.pug" />
+    <Content Include="Files\UserPanel\pug\includes\js\core.pug" />
+    <Content Include="Files\UserPanel\pug\includes\js\custom.pug" />
+    <Content Include="Files\UserPanel\pug\includes\modals\logout.pug" />
+    <Content Include="Files\UserPanel\pug\includes\navbar.pug" />
+    <Content Include="Files\UserPanel\pug\includes\scroll-to-top.pug" />
+    <Content Include="Files\UserPanel\pug\index.pug" />
+    <Content Include="Files\UserPanel\pug\login.pug" />
+    <Content Include="Files\UserPanel\pug\navbar.pug" />
+    <Content Include="Files\UserPanel\pug\register.pug" />
+    <Content Include="Files\UserPanel\pug\tables.pug" />
+    <Content Include="Files\UserPanel\README.md" />
+    <Content Include="Files\UserPanel\scss\navbar\_navbar_colors.scss" />
+    <Content Include="Files\UserPanel\scss\navbar\_navbar_fixed.scss" />
+    <Content Include="Files\UserPanel\scss\navbar\_navbar_global.scss" />
+    <Content Include="Files\UserPanel\scss\navbar\_navbar_static.scss" />
+    <Content Include="Files\UserPanel\scss\navbar\_navbar_toggle.scss" />
+    <Content Include="Files\UserPanel\scss\sb-admin.scss" />
+    <Content Include="Files\UserPanel\scss\_cards.scss" />
+    <Content Include="Files\UserPanel\scss\_footer.scss" />
+    <Content Include="Files\UserPanel\scss\_global.scss" />
+    <Content Include="Files\UserPanel\scss\_login.scss" />
+    <Content Include="Files\UserPanel\scss\_mixins.scss" />
+    <Content Include="Files\UserPanel\scss\_utilities.scss" />
+    <Content Include="Files\UserPanel\scss\_variables.scss" />
+    <Content Include="Files\UserPanel\vendor\bootstrap\css\bootstrap.css.map" />
+    <Content Include="Files\UserPanel\vendor\bootstrap\css\bootstrap.min.css.map" />
+    <Content Include="Files\UserPanel\vendor\bootstrap\js\bootstrap.bundle.js.map" />
+    <Content Include="Files\UserPanel\vendor\bootstrap\js\bootstrap.bundle.min.js.map" />
+    <Content Include="Files\UserPanel\vendor\bootstrap\js\bootstrap.js.map" />
+    <Content Include="Files\UserPanel\vendor\bootstrap\js\bootstrap.min.js.map" />
+    <Content Include="Files\UserPanel\vendor\font-awesome\css\font-awesome.css.map" />
+    <Content Include="Files\UserPanel\vendor\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="Files\UserPanel\vendor\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Files\UserPanel\vendor\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="Files\UserPanel\vendor\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Files\UserPanel\vendor\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="Files\UserPanel\vendor\font-awesome\less\animated.less" />
+    <Content Include="Files\UserPanel\vendor\font-awesome\less\bordered-pulled.less" />
+    <Content Include="Files\UserPanel\vendor\font-awesome\less\core.less" />
+    <Content Include="Files\UserPanel\vendor\font-awesome\less\fixed-width.less" />
+    <Content Include="Files\UserPanel\vendor\font-awesome\less\font-awesome.less" />
+    <Content Include="Files\UserPanel\vendor\font-awesome\less\icons.less" />
+    <Content Include="Files\UserPanel\vendor\font-awesome\less\larger.less" />
+    <Content Include="Files\UserPanel\vendor\font-awesome\less\list.less" />
+    <Content Include="Files\UserPanel\vendor\font-awesome\less\mixins.less" />
+    <Content Include="Files\UserPanel\vendor\font-awesome\less\path.less" />
+    <Content Include="Files\UserPanel\vendor\font-awesome\less\rotated-flipped.less" />
+    <Content Include="Files\UserPanel\vendor\font-awesome\less\screen-reader.less" />
+    <Content Include="Files\UserPanel\vendor\font-awesome\less\stacked.less" />
+    <Content Include="Files\UserPanel\vendor\font-awesome\less\variables.less" />
+    <Content Include="Files\UserPanel\vendor\font-awesome\scss\font-awesome.scss" />
+    <Content Include="Files\UserPanel\vendor\font-awesome\scss\_animated.scss" />
+    <Content Include="Files\UserPanel\vendor\font-awesome\scss\_bordered-pulled.scss" />
+    <Content Include="Files\UserPanel\vendor\font-awesome\scss\_core.scss" />
+    <Content Include="Files\UserPanel\vendor\font-awesome\scss\_fixed-width.scss" />
+    <Content Include="Files\UserPanel\vendor\font-awesome\scss\_icons.scss" />
+    <Content Include="Files\UserPanel\vendor\font-awesome\scss\_larger.scss" />
+    <Content Include="Files\UserPanel\vendor\font-awesome\scss\_list.scss" />
+    <Content Include="Files\UserPanel\vendor\font-awesome\scss\_mixins.scss" />
+    <Content Include="Files\UserPanel\vendor\font-awesome\scss\_path.scss" />
+    <Content Include="Files\UserPanel\vendor\font-awesome\scss\_rotated-flipped.scss" />
+    <Content Include="Files\UserPanel\vendor\font-awesome\scss\_screen-reader.scss" />
+    <Content Include="Files\UserPanel\vendor\font-awesome\scss\_stacked.scss" />
+    <Content Include="Files\UserPanel\vendor\font-awesome\scss\_variables.scss" />
+    <Content Include="Files\UserPanel\vendor\jquery\jquery.min.map" />
+    <Content Include="Files\UserPanel\vendor\jquery\jquery.slim.min.map" />
+    <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.3.1.js" />
+    <Content Include="Scripts\jquery-3.3.1.min.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\popper-utils.js" />
+    <Content Include="Scripts\popper-utils.min.js" />
+    <Content Include="Scripts\popper.js" />
+    <Content Include="Scripts\popper.min.js" />
+    <Content Include="Scripts\umd\popper-utils.js" />
+    <Content Include="Scripts\umd\popper-utils.min.js" />
+    <Content Include="Scripts\umd\popper.js" />
+    <Content Include="Scripts\umd\popper.min.js" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\DataController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\OperationController.cs" />
+    <Compile Include="Controllers\PartController.cs" />
+    <Compile Include="Controllers\UserPanelController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AnaModels\GirisModel.cs" />
+    <Compile Include="Models\AnaModels\IletisimModel.cs" />
+    <Compile Include="Models\AnaModels\IlkOnBesList.cs" />
+    <Compile Include="Models\AnaModels\KayitModel.cs" />
+    <Compile Include="Models\OperationsLibrary\DataModelDoldurucu.cs" />
+    <Compile Include="Models\OperationsLibrary\PartModelDoldurucu.cs" />
+    <Compile Include="Models\OperationsLibrary\HomeModelDoldurucu.cs" />
+    <Compile Include="Models\OperationsLibrary\KullaniciVerileri.cs" />
+    <Compile Include="Models\OperationsLibrary\UserPanelModelDoldurucu.cs" />
+    <Compile Include="Models\UserPanelModels\BankaHesabiOlusturModel.cs" />
+    <Compile Include="Models\UserPanelModels\KazanilanPuanGecmisiModeli.cs" />
+    <Compile Include="Models\OperationsLibrary\OperationsModelDoldurucu.cs" />
+    <Compile Include="Models\UserPanelModels\OdemeTalebiOlusturModel.cs" />
+    <Compile Include="Models\UserPanelModels\PayRequestModel.cs" />
+    <Compile Include="Models\UserPanelModels\PuanBakiyeJumbotronModel.cs" />
+    <Compile Include="Models\UserPanelModels\PuanBakiyeTabloModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config" />
+    <None Include="packages.config" />
+    <Content Include="Views\Shared\_AnaLayout.cshtml" />
+    <Content Include="Scripts\umd\popper.min.js.map" />
+    <Content Include="Scripts\umd\popper.js.map" />
+    <Content Include="Scripts\umd\popper-utils.min.js.map" />
+    <Content Include="Scripts\umd\popper-utils.js.map" />
+    <Content Include="Scripts\README.md" />
+    <Content Include="Scripts\popper.min.js.map" />
+    <Content Include="Scripts\popper.js.map" />
+    <Content Include="Scripts\popper-utils.min.js.map" />
+    <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.3.1.min.map" />
+    <Content Include="Views\Home\AnaSayfa.cshtml" />
+    <Content Include="Views\Home\Iletisim.cshtml" />
+    <Content Include="Views\Home\Sozlesme.cshtml" />
+    <Content Include="Views\Home\KayitOl.cshtml" />
+    <Content Include="Views\Home\GirisYap.cshtml" />
+    <Content Include="Views\Shared\_UserPanelLayout.cshtml" />
+    <Content Include="Views\UserPanel\Genel.cshtml" />
+    <Content Include="Views\Part\PuanBakiyeTablosu.cshtml" />
+    <Content Include="Views\Part\EarnPointTable.cshtml" />
+    <Content Include="Views\Part\PayRequests.cshtml" />
+    <Content Include="Views\UserPanel\PuanBozdur.cshtml" />
+    <Content Include="Views\Part\PuanBakiyeJumbotron.cshtml" />
+    <Content Include="Views\UserPanel\OdemeTalebiOlustur.cshtml" />
+    <Content Include="Views\UserPanel\BakiyeGecmisi.cshtml" />
+    <Content Include="Views\UserPanel\PuanGecmisi.cshtml" />
+    <Content Include="Views\UserPanel\YeniBankaHesabi.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Files\Js\" />
+    <Folder Include="Views\Data\" />
+    <Folder Include="Views\Operation\" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="Scripts\index.d.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OynaKazan.Entities\OynaKazan.Entities.csproj">
+      <Project>{e3873d15-7eae-429e-9a62-01f9c2c090b3}</Project>
+      <Name>OynaKazan.Entities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>52393</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:52393/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

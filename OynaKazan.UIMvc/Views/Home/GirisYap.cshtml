@@ -1,0 +1,52 @@
+﻿@model OynaKazan.UIMvc.Models.AnaModels.GirisModel
+
+@{
+    ViewBag.Title = "OynaKazan | Giriş Yap";
+    Layout = "~/Views/Shared/_AnaLayout.cshtml";
+}
+
+<br />
+
+
+<div id="divGiris">
+
+    @using (Html.BeginForm("GirisYap", "Home", FormMethod.Post, new { @id = "KullaniciGiris", @style = "width: 40%;background-color: white;border:2px groove black;" }))
+    {
+        @Html.AntiForgeryToken()
+        <center><h2>Kullanıcı Girişi</h2></center>
+
+        <div style="margin-left:2%;margin-right:2%;">
+            <label>Kullanıcı Adı </label> @Html.TextBoxFor(x => x.KullaniciAdi, new { @class = "form-control", placeholder = "Kullanıcı Adınız" })
+            <br />
+            @Html.ValidationMessageFor(x => x.KullaniciAdi)
+            <br />
+            <label>Şifre </label> @Html.PasswordFor(x => x.Sifre, new { @class = "form-control", placeholder = "Şifreniz" })
+            <br />
+            @Html.ValidationMessageFor(x => x.Sifre)
+        </div>
+        <br>
+
+
+        <center><button class="btn btn-default" style="width: 40%;">Giriş Yap <span class="glyphicon glyphicon-ok"></span></button></center>
+
+        if (ViewBag.msg != null)
+        {
+            if (ViewBag.msg == 2)
+            {
+                <br />
+                <center><label style="color:red;">Hesabınız yöneticilerimiz tarafından yasaklanmıştır. (Erişim Reddedildi)</label></center>
+            }
+            else if (ViewBag.msg == 0)
+            {
+                <br />
+                <center><label style="color:red;">Kullanıcı Adı ve/veya Şifreniz yanlış.</label></center>
+            }
+        }
+
+        <br>
+
+    }
+
+</div>
+
+

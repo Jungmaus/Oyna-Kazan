@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link rel="shortcut icon" href="~/Files/Images/logo.png">
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Files/Css/anasayfa.css" rel="stylesheet" />
+</head>
+<body>
+
+    <div id="divMenu">
+        <img src="~/Files/Images/logo.png" style="height: 15%;width: 15%;">
+        <button onclick="Redirect('@Url.Action("Anasayfa","Home")');" class="btn btn-default menuButton">Anasayfa</button>
+        <button onclick="Redirect('@Url.Action("Iletisim","Home")');" class="btn btn-default menuButton">İletişim</button>
+        <button onclick="Redirect('@Url.Action("Sozlesme","Home")');" class="btn btn-default menuButton">Sözleşme Şartları</button>
+        <button onclick="Redirect('@Url.Action("KayitOl","Home")');" class="btn btn-default menuButton">Kayıt Ol</button>
+        <button onclick="Redirect('@Url.Action("GirisYap","Home")');" class="btn btn-default menuButton">Giriş Yap</button>
+    </div>
+
+
+    <div>
+        @RenderBody()
+    </div>
+
+    <script type="text/javascript">
+        function Redirect(url) {
+            window.location = url;
+        }
+    </script>
+
+
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+
+    <br />
+    <br />
+    <br />
+    <br />
+</body>
+</html>

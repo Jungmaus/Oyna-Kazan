@@ -1,0 +1,81 @@
+﻿<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+<script type="text/javascript">
+
+        function PayRequestDelSuccess() {
+            $.ajax({
+                dataType: "json",
+                url: "@Url.Action("GetUserPayRequestList", "Data", new { kadi = Session["Kadi"].ToString() })",
+                format: "json",
+                success: function (data) {
+                    var text = "";
+                    $("#payRequestTableBody > tbody").each(function () {
+                        for (var i = 0; i < data.length; i++) {
+                            text = text + "<tr>";
+                            text = text + "<td>" + data[i].IlgiliBankaAdi + "</td><td>" + data[i].Tutar + " TL </td><td>" + data[i].IslemTarihi + "</td>";
+                            if (data[i].Statu == 0) {
+                                text = text + "<td style='color:blue;'>Onay Bekleniyor. <form action='/Operation/DeletePayRequest?Id=" + data[i].Id + "' data-ajax='true' data-ajax-method='POST' data-ajax-success='PayRequestDelSuccess' data-ajax-failure='PayRequestDelFailure' id='form0' method='post'><button class='btn btn-danger'>X</button></form>";
+                            } else if (data[i].Statu == 1) {
+                                text = text + "<td style='color:darkgoldenrod;'>Ödeme Bekleniyor.</td>";
+                            } else if (data[i].Statu == 2) {
+                                text = text + "<td style='color:green;'>Ödeme Tamamlandı.</td>";
+                            } else if (data[i].Statu == 3) {
+                                text = text + "<td style='color:red;'>Ödeme Reddedildi.</td>";
+                            }
+                            text = text + "</tr>";
+                        }
+                    });
+                    $("#payRequestTableBody > tbody").html("");
+                    $("#payRequestTableBody > tbody").append(text);
+                },
+                failure: function () {
+                    alert("Bir hata oluştu. Sayfa yenilenecek.");
+                    window.location = window.location;
+                }
+               
+            });
+    }
+
+        function PayRequestDelFailure() {
+            window.location = window.location;
+        }
+
+</script>
+
+<div class="card mb-3">
+    <div class="card-header">
+        <i class="fa fa-table"></i> Ödeme Talepleri
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="payRequestTableBody" style="width:100%;" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>İlgili Banka Adı</th>
+                        <th>Tutar</th>
+                        <th>İşlem Tarihi</th>
+                        <th>Durum</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>İlgili Banka Adı</th>
+                        <th>Tutar</th>
+                        <th>İşlem Tarihi</th>
+                        <th>Durum</th>
+                    </tr>
+                </tfoot>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+    <div class="card-footer small text-muted">@DateTime.Now tarihinde güncellendi.</div>
+</div>
+
+<script type="text/javascript">
+
+        $(document).ready(function () {
+            PayRequestDelSuccess();
+    });
+
+</script>

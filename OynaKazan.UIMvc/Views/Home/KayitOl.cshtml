@@ -1,0 +1,70 @@
+﻿@model OynaKazan.UIMvc.Models.AnaModels.KayitModel
+
+@{
+    ViewBag.Title = "OynaKazan | Kayıt Ol";
+    Layout = "~/Views/Shared/_AnaLayout.cshtml";
+}
+
+<br />
+    <div id="divKayit">
+
+        @using (Html.BeginForm("KayitOl", "Home", FormMethod.Post, new { @id = "KullaniciKayit", @style = "width: 40%;background-color: white;border:2px groove black;" }))
+        {
+           @Html.AntiForgeryToken()
+            <center><h2>Kayıt Formu</h2></center>
+            <div style="margin-left:2%;margin-right:2%;">
+                <label><strong>Hesap Bilgileri</strong></label><br>
+                <label>Kullanıcı Adı </label> @Html.TextBoxFor(x => x.KullaniciAdi, new { @class = "form-control", placeholder = "Kullanıcı Adı" })
+                <br />
+                @Html.ValidationMessageFor(x => x.KullaniciAdi) @{ if (ViewBag.msgKadi != null)
+        { <label style="color:red;">Bu kullanıcı adına sahip birisi bulunmaktadır.</label> } }
+                <br />
+                <label>Şifre </label> @Html.PasswordFor(x => x.Sifre, new { @class = "form-control", placeholder = "Şifre" })
+                <br />
+                @Html.ValidationMessageFor(x => x.Sifre)
+                <br />
+                <label>E-mail </label> @Html.TextBoxFor(x => x.Email, new { @class = "form-control", placeholder = "E-mail" })
+                <br />
+                @Html.ValidationMessageFor(x => x.Email) @{ if (ViewBag.msgEmail != null)
+        { <label style="color:red;">Bu e-mail adresine sahip birisi bulunmaktadır.</label> } }
+
+                <br>
+
+                <label><strong>Kişisel Bilgiler</strong></label><br>
+                <br />
+                @Html.ValidationMessageFor(x => x.Ad)
+                <label>Ad </label> @Html.TextBoxFor(x => x.Ad, new { @class = "form-control", placeholder = "Adınız" })
+                <br />
+                @Html.ValidationMessageFor(x => x.Soyad)
+                <label>Soyad </label> @Html.TextBoxFor(x => x.Soyad, new { @class = "form-control", placeholder = "Soyadınız" })
+
+                <br>
+            </div>
+            @Html.ValidationMessageFor(x=>x.Sozlesme)
+            <div class="checkbox" style="margin-left:2%;">
+                @Html.CheckBoxFor(x=>x.Sozlesme,true) <label><a href="@Url.Action("Sozlesme", "Home")"> Sözleşme Şartlarını</a> onaylıyorum.</label>
+                @{ 
+                    if(ViewBag.msgSoz != null)
+                    {
+                        <br />
+                        <label style="color:red;">Kayıt işleminizin tamamlanması için sözleşme şartlarını onaylamanız gerekmektedir.</label>
+                    }
+                }
+            </div>
+
+            <br>
+
+            <center><button class="btn btn-default" style="width: 40%;">Kayıt Ol</button></center>
+
+            
+                if(ViewBag.success != null)
+                {
+                    <br />
+                    <center><label style="color:green;">Kayıt işleminiz başarıyla tamamlanmıştır.</label></center>
+                }
+            
+
+            <br>
+        }
+    </div>
+

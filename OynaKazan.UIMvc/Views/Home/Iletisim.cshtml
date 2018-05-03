@@ -1,0 +1,67 @@
+﻿@model OynaKazan.UIMvc.Models.AnaModels.IletisimModel
+
+@{
+    ViewBag.Title = "OynaKazan | İletisim";
+    Layout = "~/Views/Shared/_AnaLayout.cshtml";
+}
+
+@*<div id="divIletisim">
+
+    <img src="~/Files/Images/iletisim.png" srcset="~/Files/Images/iletisim.png 320w,
+             ~/Files/Images/iletisim.png 480w,
+             ~/Files/Images/iletisim.png 800w" sizes="(max-width: 320px) 280px,
+            (max-width: 480px) 440px,
+            800px">
+
+</div>*@
+
+
+<div id="divIletisim">
+    @using (Html.BeginForm("Iletisim", "Home", FormMethod.Post, new { @id = "Iletisim", @style = "width: 40%;background-color: white;border:2px groove black;" }))
+    {
+        @Html.AntiForgeryToken()
+        <center><h2>İletişim Formu</h2><p>İki tarafında güvenliği için ip adresiniz alınmaktadır.</p></center>
+
+        <div style="margin-left:2%;margin-right:2%;">
+            <label>Ad Soyad </label> @Html.TextBoxFor(x => x.AdSoyad, new { @class = "form-control", placeholder = "Ad ve Soyad" })
+            <br />
+            @Html.ValidationMessageFor(x => x.AdSoyad)
+            <br />
+            <label>E-mail </label> @Html.TextBoxFor(x => x.Email, new { @class = "form-control", placeholder = "Email" })
+            <br />
+            @Html.ValidationMessageFor(x => x.Email)
+            <br />
+            <label>Konu </label> @Html.TextBoxFor(x => x.Konu, new { @class = "form-control", placeholder = "Konu" })
+            <br />
+            @Html.ValidationMessageFor(x => x.Konu)
+            <br />
+            <label>Mesaj </label> @Html.TextAreaFor(x => x.Mesaj, new { @class = "form-control", placeholder = "Mesaj" })
+            <br />
+            @Html.ValidationMessageFor(x => x.Mesaj)
+        </div>
+        <br>
+
+        <center><button class="btn btn-default" style="width: 40%;">Gönder <span class="glyphicon glyphicon-ok"></span></button></center>
+
+
+        if (ViewBag.Msg != null)
+        {
+            <br />
+            if (ViewBag.Msg == "1")
+            {
+                <center><label style="color:green;">İletişim mesajınız gönderilmiştir. Teşekkür ederiz.</label></center>
+            }
+            else if (ViewBag.Msg == "0")
+            {
+                <center><label style="color:red;">İletişim mesajınız gönderilemedi. Lütfen tekrar deneyiniz.</label></center>
+            }
+        }
+
+
+        <br>
+    }
+
+
+</div>
+
+

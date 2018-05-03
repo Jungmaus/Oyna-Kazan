@@ -1,0 +1,41 @@
+﻿@model IEnumerable<OynaKazan.UIMvc.Models.AnaModels.IlkOnBesList>
+
+@{
+    ViewBag.Title = "OynaKazan | Anasayfa";
+    Layout = "~/Views/Shared/_AnaLayout.cshtml";
+}
+
+<br />
+<center><label style="font-size:150%;color:black;">Kullanıcılarımız arasında en yüksek bakiyeye sahip ilk 15 kullanıcı</label></center>
+
+<br />
+
+<div id="divAnaSayfa">
+
+    <table class="table table-striped" style="background-color:white;">
+        <thead>
+            <tr>
+                <th>Sıra Numarası</th>
+                <th>Kullanıcı Adı</th>
+                <th>Bakiye</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                int dongu = 0;
+                foreach (var item in Model)
+                {
+                    dongu++;
+                    <tr>
+                        <td>@dongu</td>
+                        <td>@item.Kadi</td>
+                        <td>@item.Bakiye TL</td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+
+</div>
+
+

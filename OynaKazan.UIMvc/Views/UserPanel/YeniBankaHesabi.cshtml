@@ -1,0 +1,40 @@
+﻿@model OynaKazan.UIMvc.Models.UserPanelModels.BankaHesabiOlusturModel
+
+@{
+    ViewBag.Title = "YeniBankaHesabi";
+    Layout = "~/Views/Shared/_UserPanelLayout.cshtml";
+}
+
+
+
+<center><h2>Yeni Banka Hesabı Oluşturma Formu</h2></center>
+<br />
+
+@using (Html.BeginForm("YeniBankaHesabi", "UserPanel", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <br />
+    <label>Banka Adı: </label> @Html.TextBoxFor(x => x.BankaAdi, new { @class = "form-control" })
+    <br />
+    if (Html.ValidationMessageFor(x => x.IBAN) != null)
+    {
+        <label class="validationLabel">@Html.ValidationMessageFor(x => x.BankaAdi)</label> <br />
+    }
+
+    <label>IBAN: </label> @Html.TextBoxFor(x => x.IBAN, new { @class = "form-control" })
+    <br />
+    if (Html.ValidationMessageFor(x => x.IBAN) != null)
+    {
+        <label class="validationLabel">@Html.ValidationMessageFor(x => x.IBAN)</label> <br />
+    }
+
+    <label>Hesap Sahibi: </label> @Html.TextBoxFor(x => x.HesapSahibi, new { @class = "form-control" })
+    <br />
+    if (Html.ValidationMessageFor(x => x.HesapSahibi) != null)
+    {
+        <label class="validationLabel">@Html.ValidationMessageFor(x => x.HesapSahibi)</label><br />
+    }
+
+    <center><button class="btn btn-success">Banka Hesabı Oluştur</button></center>
+    <br />
+}
